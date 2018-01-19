@@ -226,6 +226,7 @@ UniValue CallRPC(const string& strMethod, const UniValue& params)
         throw CConnectionFailed("send http request failed");
     }
 
+    MilliSleep(50);     //Error Reduce Sleep
     event_base_dispatch(base.get());
 
     if (response.status == 0)
